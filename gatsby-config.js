@@ -2,10 +2,10 @@ require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby`,
-    description: `Gatsby + Headless WordPress`,
-    author: `@acrockr`,
-    siteUrl: `https://gatsby-starter-headless-wp.netlify.com`
+    title: `PopFlyXP`,
+    description: `Digital Brand Development Platform for Baseball Players.`,
+    author: `@popflyxp`,
+    siteUrl: `https://popflyxp.com`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -34,12 +34,12 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         // your wordpress source
-        baseUrl: `cms.botwrangler.me`,
-        protocol: `https`,
+        baseUrl: `editpopflyxp.ememdigital.com`,
+        protocol: `http`, 
         // is it hosted on wordpress.com, or self-hosted?
         hostingWPCOM: false,
         // does your site use the Advanced Custom Fields Plugin?
-        useACF: true,
+        useACF: false,
         // auth: {
         //   htaccess_user: process.env.WP_USER,
         //   htaccess_pass: process.env.WP_PASS,

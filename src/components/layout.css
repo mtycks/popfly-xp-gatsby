@@ -7,6 +7,19 @@ h1,h2,h3,h4,h5,h6{
   font-family:'Days One' !important;
 }
 
+.btn{
+  border-radius:15px;
+  font-family:'Days One';
+  padding:.5rem 2rem;
+  text-transform:uppercase;
+}
+
+.btn-primary{
+  background-color:rgb(240, 60, 71);
+  border-color:rgb(240, 60, 71);
+  color:#FFFFFF;
+}
+
 .popflyxp-header{
   position:relative;
   z-index:10;
@@ -19,6 +32,11 @@ h1,h2,h3,h4,h5,h6{
   width:100%;
   z-index:100;
 }
+
+  .main-navigation .navbar{
+    padding-left:0;
+    padding-right:0;
+  }
 
   .main-navigation .navbar-collapse{
     flex-basis:0;
@@ -57,6 +75,39 @@ h1,h2,h3,h4,h5,h6{
     margin:0;
     text-transform:uppercase;
   }
+
+.tall-header-title{
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:flex-end;
+  justify-content:flex-start;
+  z-index:90;
+}
+
+.tall-header-title .container{
+  padding-bottom:5rem;
+}
+
+.tall-header-title .col-md-7{
+  align-items:flex-start;
+  display:flex;
+  flex-direction:column;
+}
+
+.tall-header-title h1{
+  color:#FFFFFF;
+  font-size:3rem;
+  margin:auto 0 2rem;
+  text-transform:uppercase;
+}
+
+.tall-header-title a.btn{
+  margin-bottom:5rem;
+}
 
 @media(max-width:767px){
   .main-navigation .navbar-collapse{

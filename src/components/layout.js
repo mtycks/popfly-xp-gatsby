@@ -43,6 +43,13 @@ const Layout = ({ children, header, headerTitle }) => {
           }
         }
       }
+      phones: file(absolutePath: { regex: "/celulares.png/" }) {
+        childImageSharp {
+          fluid(maxWidth: 1200, quality: 100) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
     }
   `)
 
@@ -90,14 +97,30 @@ const Layout = ({ children, header, headerTitle }) => {
           </Container>
         </nav>
     
-        {headerTitle &&
+        {headerTitle && header === "short" &&
           <div className="main-header-title">
             <h1>{headerTitle}</h1>
           </div>
         }
 
         {header === "tall" &&
-          <Img fluid={data.header_bg.childImageSharp.fluid} imgStyle={{objectFit: "cover", objectPosition: "50% 50%",}} style={{width: "100%", maxHeight: "780px", display: "inline-block", textAlign:"center"}} />
+          <>
+            <div className="tall-header-title">
+              <Container>
+                <Row>
+                  <Col md="7">
+                    <h1 dangerouslySetInnerHTML={{ __html: headerTitle }} />
+                    <Link href="blog" className="btn btn-primary">Our Players</Link>
+                  </Col>
+                  <Col md="5">
+                    <Img fluid={data.phones.childImageSharp.fluid} />
+                  </Col>
+                </Row>
+              </Container>
+            </div>
+
+            <Img fluid={data.header_bg.childImageSharp.fluid} imgStyle={{objectFit: "cover", objectPosition: "50% 50%",}} style={{width: "100%", maxHeight: "780px", display: "inline-block", textAlign:"center"}} />
+          </>
         }
 
         {header === "short" &&

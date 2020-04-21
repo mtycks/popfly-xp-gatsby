@@ -74,19 +74,19 @@ const Layout = ({ children, header, headerTitle }) => {
                   <Collapse isOpen={!collapsed} navbar>
                     <Nav navbar>
                       <NavItem>
-                        <Link href="/">Home</Link>
+                        <Link to="/">Home</Link>
                       </NavItem>
                       <NavItem>
-                        <Link href="/">Players</Link>
+                        <Link to="/">Players</Link>
                       </NavItem>
                       <NavItem>
-                        <Link href="/">Team</Link>
+                        <Link to="/">Team</Link>
                       </NavItem>
                       <NavItem>
-                        <Link href="/">Shop</Link>
+                        <Link to="/">Shop</Link>
                       </NavItem>
                       <NavItem>
-                        <Link href="/">Contact</Link>
+                        <Link to="/">Contact</Link>
                       </NavItem>
                     </Nav>
                   </Collapse>
@@ -110,7 +110,7 @@ const Layout = ({ children, header, headerTitle }) => {
                 <Row>
                   <Col md="7">
                     <h1 dangerouslySetInnerHTML={{ __html: headerTitle }} />
-                    <Link href="blog" className="btn btn-primary">Our Players</Link>
+                    <Link to="blog" className="btn btn-primary">Our Players</Link>
                   </Col>
                   <Col md="5">
                     <Img fluid={data.phones.childImageSharp.fluid} />
@@ -129,10 +129,8 @@ const Layout = ({ children, header, headerTitle }) => {
 
       </div>
 
-      <Header siteTitle={data.site.siteMetadata.title} siteDesc={data.site.siteMetadata.description} />
-      <Container>
-        {children}
-      </Container>
+      {children}
+      
     </>
   )
 }

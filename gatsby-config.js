@@ -52,7 +52,8 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `days one` // you can also specify font weights and styles
+          `days one`,
+          `open sans`
         ],
         display: 'swap'
       }

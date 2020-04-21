@@ -14,7 +14,7 @@ const Blog = ({ pageContext }) => {
     }
 
     return (
-        <Layout>
+        <Layout header="short" headerTitle="Blog">
             <SEO title="Blog" />
             <h1>Blog</h1>
 

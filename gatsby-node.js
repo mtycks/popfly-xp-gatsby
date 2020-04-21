@@ -10,6 +10,27 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const result = await graphql(
       `
       {
+        allWordpressPage {
+          edges {
+            node {
+              id
+              wordpress_id
+              title
+              slug
+              author {
+                avatar_urls {
+                  wordpress_48
+                }
+                wordpress_id
+                name
+                slug
+              }
+              content
+              date
+              excerpt
+            }
+          }
+        },
         allWordpressPost {
           edges {
             node {
@@ -74,18 +95,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         }
     })
 
-    // Create pages for each WordPress page
-    // const pageTemplate = path.resolve(`./src/templates/page.js`)
-    // _.each(result.data.allWordpressPage.nodes, page => {
-    //   createPage({
-    //       path: `/${page.slug}`,
-    //       component: slash(pageTemplate),
-    //       context: {
-    //           content: page.content,
-    //           name: page.title
-    //       }
-    //   })
-    // })
+    //Create pages for each WordPress page
+    const pageTemplate = path.resolve(`./src/templates/page.js`)
+    _.each(result.data.allWordpressPage.edges, page => {
+      createPage({
+          path: `/${page.node.slug}`,
+          component: slash(pageTemplate),
+          context: {
+              content: page.node.content,
+              name: page.node.title
+          }
+      })
+    })
 
     // Create posts for each WordPress post
     const postTemplate = path.resolve(`./src/templates/post.js`)

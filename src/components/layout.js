@@ -1,8 +1,8 @@
-import React from "react"
+import React, {useState} from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
-
+import { useStaticQuery, graphql, Link } from "gatsby"
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Img from 'gatsby-image'
 import Header from "./header"
 import Sidebar from "./sidebar"
 import RecentPosts from './recent-posts'
@@ -10,49 +10,10 @@ import "./layout.css"
 import igIcon from '../images/instagram-icon.svg'
 import twtrIcon from '../images/twitter-icon.svg'
 
-const Container = styled.div`
-  margin: 0 auto;
-  max-width: 1170px;
-  padding: 0px 1.0875rem 1.45rem;
-  padding-top: 0;
-  font-family: 'Roboto', sans-serif;
-`
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink, Container, Row, Col } from 'reactstrap';
 
-const PageContent = styled.div`
-  flex: auto;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-`
-const Main = styled.main`
-  flex: 1;
-  margin-right: 25px;
-`
 
-const Footer = styled.footer`
-  margin-top: 50px;
-`
-
-const Socials = styled.div`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  width: auto;
-  padding-bottom: 10px;
-
-  img {
-    width: 50px;
-    height: 50px;
-
-    &:first-of-type {
-      margin-right: 10px;
-    }
-  }
-`
-
-const Layout = ({ children }) => {
+const Layout = ({ children, header, headerTitle }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -61,34 +22,93 @@ const Layout = ({ children }) => {
           description
         }
       }
+      white_logo: file(absolutePath: { regex: "/whitelogo3.png/" }) {
+        childImageSharp {
+          fluid(maxWidth: 250, quality: 100) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      header_bg: file(absolutePath: { regex: "/slidehomeOPT.jpg/" }) {
+        childImageSharp {
+          fluid(maxWidth: 1200, quality: 100) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+      header_bg_short: file(absolutePath: { regex: "/interior-bg.png/" }) {
+        childImageSharp {
+          fluid(maxWidth: 1200, quality: 100) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
     }
   `)
 
+  const [collapsed, setCollapsed] = useState(true);
+  const toggleNavbar = () => setCollapsed(!collapsed);
+
   return (
     <>
+
+      <div className="popflyxp-header">
+
+        <nav className="main-navigation">
+          <Container>
+            <Row>
+              <Col>
+              
+                <Navbar color="faded" dark expand="md">
+                  <Link href="/" className="navbar-brand mr-auto">
+                    <Img fluid={data.white_logo.childImageSharp.fluid} imgStyle={{objectFit: "contain",objectPosition: "50% 50%",}} style={{minWidth: "250px", display: "inline-block"}} />
+                  </Link>
+                  <NavbarToggler onClick={toggleNavbar} className="mr-2" />
+                  <Collapse isOpen={!collapsed} navbar>
+                    <Nav navbar>
+                      <NavItem>
+                        <Link href="/">Home</Link>
+                      </NavItem>
+                      <NavItem>
+                        <Link href="/">Players</Link>
+                      </NavItem>
+                      <NavItem>
+                        <Link href="/">Team</Link>
+                      </NavItem>
+                      <NavItem>
+                        <Link href="/">Shop</Link>
+                      </NavItem>
+                      <NavItem>
+                        <Link href="/">Contact</Link>
+                      </NavItem>
+                    </Nav>
+                  </Collapse>
+                </Navbar>
+
+              </Col>
+            </Row>
+          </Container>
+        </nav>
+    
+        {headerTitle &&
+          <div className="main-header-title">
+            <h1>{headerTitle}</h1>
+          </div>
+        }
+
+        {header === "tall" &&
+          <Img fluid={data.header_bg.childImageSharp.fluid} imgStyle={{objectFit: "cover", objectPosition: "50% 50%",}} style={{width: "100%", maxHeight: "780px", display: "inline-block", textAlign:"center"}} />
+        }
+
+        {header === "short" &&
+          <Img fluid={data.header_bg_short.childImageSharp.fluid} imgStyle={{objectFit: "cover", objectPosition: "50% 50%",}} style={{width: "100%", maxHeight: "420px", display: "inline-block", textAlign:"center"}} />
+        }
+
+      </div>
+
       <Header siteTitle={data.site.siteMetadata.title} siteDesc={data.site.siteMetadata.description} />
       <Container>
-        <PageContent className="page-content">
-          <Main>{children}</Main>
-          <Sidebar>
-            <RecentPosts />
-
-          </Sidebar>
-        </PageContent>
-
-        <Footer>
-          <Socials className="social-icons">
-          <a href="https://twitter.com/crocdomains">
-              <img src={twtrIcon} alt="twitter icon" />
-            </a>
-            <a href="https://instagram.com/crocdesigns">
-              <img src={igIcon} alt="instagram icon" />
-            </a>
-          </Socials>
-          © {new Date().getFullYear()} Alex Crocker, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </Footer>
+        {children}
       </Container>
     </>
   )

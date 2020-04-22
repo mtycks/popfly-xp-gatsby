@@ -67,6 +67,10 @@ h1,h2,h3,h4,h5,h6{
     text-decoration:none;
   }
 
+  .navbar-dark .navbar-toggler{
+    border:none;
+  }
+
 .main-header-title{
   position:absolute;
   left:0;
@@ -102,7 +106,7 @@ h1,h2,h3,h4,h5,h6{
   padding-bottom:5rem;
 }
 
-.tall-header-title .col-md-7{
+.tall-header-title .tall-header-text{
   align-items:flex-start;
   display:flex;
   flex-direction:column;
@@ -123,6 +127,10 @@ h1,h2,h3,h4,h5,h6{
   position: relative;
 }
 
+.slick-list{
+  padding:50px 0 !important;
+}
+
   .slick-container .frame-holder{
     position:absolute;
     left:0;
@@ -138,9 +146,127 @@ h1,h2,h3,h4,h5,h6{
     z-index:50;
   }
 
+.team-members{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+
+  .team-member{
+    max-width:20%;
+  }
+
+  .team-member .gatsby-image-wrapper{
+    margin-bottom:1rem;
+  }
+
+  .team-member h3{
+    color:#000000;
+    font-size: 1.5rem;
+    font-family:'Open Sans' !important;
+    margin:0 0 1rem;
+    text-transform:uppercase;
+  }
+
+  .team-member h5{
+    color:#353535;
+    font-size: .9rem;
+    font-family:'Open Sans' !important;
+    font-weight:bold;
+    margin:0 0 1rem;
+    text-transform:uppercase;
+  }
+
+  .team-member p{
+    font-size:.8rem;
+    line-height:1.75;
+  }
+
+footer{
+  background-color:#141515;
+}
+
+footer hr{
+  border-top:1px solid rgba(255,255,255,.1);
+}
+
+footer ul.list-unstyled li{
+  margin-bottom:.5rem;
+}
+
+footer a:link,
+footer a:visited{
+  color:#ababab;
+  text-transform:uppercase;
+}
+
+footer a:hover{
+  color:rgb(240, 60, 71);
+  text-decoration:none;
+}
+
+footer h4{
+  color:#FFFFFF;
+}
+
+@media( max-width:1199px ){
+  .tall-header-title h1{
+    font-size:2rem;
+  }
+  .tall-header-title .tall-header-text{
+    display:block;
+    margin-top:5rem;
+    text-align:center;
+  }
+
+  .tall-header-title .container{
+    padding-bottom:1rem;
+  }
+
+}
+
+@media(max-width:1099px){
+
+  .team-members{
+    justify-content:center;
+  }
+
+  .team-member{
+    max-width: 60%;
+    flex-basis:60%;
+  }
+
+    .team-member .gatsby-image-wrapper{
+      max-width:220px !important;
+    }
+
+}
+
 @media(max-width:767px){
   .main-navigation .navbar-collapse{
     flex-basis:100%;
     text-align:center;
   }
+
+  .navbar-brand .gatsby-image-wrapper{
+    min-width:200px !important;
+  }
+
+  .main-header-title h1{
+    font-size:2rem;
+  }
+
+  .tall-header-title .tall-header-text{
+    display:block;
+    margin-top:5rem;
+    text-align:center;
+  }
+
+
+
+  footer{
+    text-align:center;
+  }
+
 }

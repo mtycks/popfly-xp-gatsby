@@ -7,8 +7,8 @@ import Header from "./header"
 import Sidebar from "./sidebar"
 import RecentPosts from './recent-posts'
 import "./layout.css"
-import igIcon from '../images/instagram-icon.svg'
-import twtrIcon from '../images/twitter-icon.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink, Container, Row, Col } from 'reactstrap';
 
@@ -66,7 +66,7 @@ const Layout = ({ children, header, headerTitle }) => {
             <Row>
               <Col>
               
-                <Navbar color="faded" dark expand="md">
+                <Navbar color="faded" dark expand="lg">
                   <Link href="/" className="navbar-brand mr-auto">
                     <Img fluid={data.white_logo.childImageSharp.fluid} imgStyle={{objectFit: "contain",objectPosition: "50% 50%",}} style={{minWidth: "250px", display: "inline-block"}} />
                   </Link>
@@ -77,13 +77,13 @@ const Layout = ({ children, header, headerTitle }) => {
                         <Link to="/">Home</Link>
                       </NavItem>
                       <NavItem>
-                        <Link to="/">Players</Link>
+                        <Link to="/players">Players</Link>
                       </NavItem>
                       <NavItem>
-                        <Link to="/">Team</Link>
+                        <Link to="/team">Team</Link>
                       </NavItem>
                       <NavItem>
-                        <Link to="/">Shop</Link>
+                        <a href="https://store.popflyxp.com/">Shop</a>
                       </NavItem>
                       <NavItem>
                         <Link to="/">Contact</Link>
@@ -108,29 +108,71 @@ const Layout = ({ children, header, headerTitle }) => {
             <div className="tall-header-title">
               <Container>
                 <Row>
-                  <Col md="7">
+                  <Col lg={{size:"7", offset: "0"}} md={{size:"8", offset:"2"}} sm={{size:"12", offset:"0"}} xs={{size:"12", offset: "0"}} className="tall-header-text">
                     <h1 dangerouslySetInnerHTML={{ __html: headerTitle }} />
                     <Link to="blog" className="btn btn-primary">Our Players</Link>
                   </Col>
-                  <Col md="5">
+                  <Col lg={{size:"5", offset: "0"}} md={{size:"6", offset: "3"}} xs={{size:"8", offset:"2"}}>
                     <Img fluid={data.phones.childImageSharp.fluid} />
                   </Col>
                 </Row>
               </Container>
             </div>
 
-            <Img fluid={data.header_bg.childImageSharp.fluid} imgStyle={{objectFit: "cover", objectPosition: "50% 50%",}} style={{width: "100%", maxHeight: "780px", display: "inline-block", textAlign:"center"}} />
+            <Img fluid={data.header_bg.childImageSharp.fluid} imgStyle={{objectFit: "cover", objectPosition: "50% 50%",}} style={{width: "100%", minHeight:"780px", maxHeight: "780px", display: "inline-block", textAlign:"center"}} />
           </>
         }
 
         {header === "short" &&
-          <Img fluid={data.header_bg_short.childImageSharp.fluid} imgStyle={{objectFit: "cover", objectPosition: "50% 50%",}} style={{width: "100%", maxHeight: "420px", display: "inline-block", textAlign:"center"}} />
+          <Img fluid={data.header_bg_short.childImageSharp.fluid} imgStyle={{objectFit: "cover", objectPosition: "50% 50%",}} style={{width: "100%", minHeight: "420px", maxHeight: "420px", display: "inline-block", textAlign:"center"}} />
         }
 
       </div>
 
       {children}
-      
+
+      <footer className="pt-5 pb-5">
+        <Container>
+          <Row>
+            <Col md={{size:"3", offset:"0"}} xs={{size:"8", offset:"2"}} className="pb-5">
+              <p>
+                <Link to="/"><Img fluid={data.white_logo.childImageSharp.fluid} /></Link>
+              </p>
+
+              <a href="https://www.facebook.com/popflyxp/" target="_blank" rel="noopener noreferrer" className="d-inline-block p-3"><FontAwesomeIcon size="2x" icon={faFacebookF} /></a>
+              <a href="https://twitter.com/PopFlyXP" target="_blank" rel="noopener noreferrer" className="d-inline-block p-3"><FontAwesomeIcon size="2x" icon={faTwitter} /></a>
+              <a href="https://www.instagram.com/popflyxp/" target="_blank" rel="noopener noreferrer" className="d-inline-block p-3"><FontAwesomeIcon size="2x" icon={faInstagram} /></a>
+
+            </Col>
+            <Col sm={{offset:"0"}} md={{size:"6", offset:"1"}}>
+              <h4>Additional Links</h4>
+              <ul className="list-unstyled">
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/">Players</Link>
+                </li>
+                <li>
+                  <Link to="/">Team</Link>
+                </li>
+                <li>
+                  <Link to="/">Shop</Link>
+                </li>
+                <li>
+                  <Link to="/">Contact</Link>
+                </li>
+              </ul>
+            </Col>
+          </Row>
+          <Row className="pt-3 pb-3">
+            <Col>
+              <hr />
+            </Col>
+          </Row>
+        </Container>
+      </footer>
+
     </>
   )
 }

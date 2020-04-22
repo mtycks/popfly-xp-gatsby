@@ -106,7 +106,7 @@ const Layout = ({ children, header, headerTitle }) => {
                 <Row>
                   <Col xl={{size:"7", offset:"0"}} lg={{size:"6", offset: "0"}} md={{size:"8", offset:"2"}} sm={{size:"12", offset:"0"}} xs={{size:"12", offset: "0"}} className="tall-header-text">
                     <h1 dangerouslySetInnerHTML={{ __html: headerTitle }} />
-                    <Link to="blog" className="btn btn-primary">Our Players</Link>
+                    <Link to="/players" className="btn btn-primary">Our Players</Link>
                   </Col>
                   <Col xl={{size:"5", offset: "0"}} lg={{size:"6", offset: "0"}} md={{size:"6", offset: "3"}} xs={{size:"8", offset:"2"}}>
                     <Img fluid={data.phones.childImageSharp.fluid} />

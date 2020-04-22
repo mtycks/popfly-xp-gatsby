@@ -62,7 +62,8 @@ h1,h2,h3,h4,h5,h6{
     text-transform:uppercase;
   }
 
-  .main-navigation .navbar-dark .navbar-nav .nav-item a:hover{
+  .main-navigation .navbar-dark .navbar-nav .nav-item a:hover,
+  .main-navigation .navbar-dark .navbar-nav .nav-item a.active{
     color:#f03c47;
     text-decoration:none;
   }
@@ -289,4 +290,13 @@ footer h4{
     text-align:center;
   }
 
+}
+
+@media(max-width:499px){
+  .slick-container{
+    overflow:hidden;
+  }
+  .slick-container .frame-holder .gatsby-image-wrapper{
+    left:-26px;
+  }
 }

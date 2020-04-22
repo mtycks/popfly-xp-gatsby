@@ -128,7 +128,7 @@ const IndexPage = () => {
             <h2>POPFLYXP</h2>
             <p className="lead"><em>Is a Digital Brand Development Platform for Baseball Players. Its roster of athletes includes Active Players as well as Legends of the Game. PFXP's mission is to bring fans closer to their favorite player.</em></p>
             <p>In an era where Content is The Castle and the Audience is the King, we have created an Athlete Engagement Platform where Fans can find all the authentic content, relevant information and day to day perspective of the favorite Players in the game.</p>
-            <p><Link to="blog" className="btn btn-primary">Our Team</Link></p>
+            <p><Link to="/team" className="btn btn-primary">Our Team</Link></p>
           </Col>
           <Col lg={{offset:"1", size:"6", order:"2"}} xs={{size:"12", offset:"0", order:"1"}}>
             <Img fluid={data.comingsoon.childImageSharp.fluid} />

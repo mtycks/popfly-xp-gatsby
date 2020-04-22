@@ -70,19 +70,19 @@ const Layout = ({ children, header, headerTitle }) => {
                   <Collapse isOpen={!collapsed} navbar>
                     <Nav navbar>
                       <NavItem>
-                        <Link to="/">Home</Link>
+                        <Link to="/" activeClassName="active">Home</Link>
                       </NavItem>
                       <NavItem>
-                        <Link to="/players">Players</Link>
+                        <Link to="/players" activeClassName="active">Players</Link>
                       </NavItem>
                       <NavItem>
-                        <Link to="/team">Team</Link>
+                        <Link to="/team" activeClassName="active">Team</Link>
                       </NavItem>
                       <NavItem>
-                        <Link to="/shop">Shop</Link>
+                        <Link to="/shop" activeClassName="active">Shop</Link>
                       </NavItem>
                       <NavItem>
-                        <Link to="/contact">Contact</Link>
+                        <Link to="/contact" activeClassName="active">Contact</Link>
                       </NavItem>
                     </Nav>
                   </Collapse>

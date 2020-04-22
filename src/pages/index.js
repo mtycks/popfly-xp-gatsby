@@ -166,8 +166,8 @@ const IndexPage = () => {
       <Container>
         <Row className="pt-5 pb-5">
           <Col xs="12" className="text-center">
-            <h2 className="text-uppercase">Our Players</h2>
-            <p><Link to="/players"><Img fluid={data.eltitan.childImageSharp.fluid} style={{minWidth: '150px', maxWidth:'200px', display:'inline-block'}} /></Link></p>
+            <h2 className="text-uppercase">Download Your Favorite Player's App</h2>
+            <p><Link to="/players"><Img fluid={data.eltitan.childImageSharp.fluid} style={{minWidth: '200px', maxWidth:'200px', display:'inline-block'}} /></Link></p>
           </Col>
         </Row>
       </Container>

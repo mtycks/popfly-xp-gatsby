@@ -3,15 +3,11 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Img from 'gatsby-image'
-import Header from "./header"
-import Sidebar from "./sidebar"
-import RecentPosts from './recent-posts'
 import "./layout.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
-import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink, Container, Row, Col } from 'reactstrap';
-
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem, Container, Row, Col } from 'reactstrap';
 
 const Layout = ({ children, header, headerTitle }) => {
   const data = useStaticQuery(graphql`
@@ -61,7 +57,7 @@ const Layout = ({ children, header, headerTitle }) => {
 
       <div className="popflyxp-header">
 
-        <nav className="main-navigation">
+        <nav className={`main-navigation ${collapsed ? `collapsed` : `open` }`}>
           <Container>
             <Row>
               <Col>
@@ -83,10 +79,10 @@ const Layout = ({ children, header, headerTitle }) => {
                         <Link to="/team">Team</Link>
                       </NavItem>
                       <NavItem>
-                        <a href="https://store.popflyxp.com/">Shop</a>
+                        <Link to="/shop">Shop</Link>
                       </NavItem>
                       <NavItem>
-                        <Link to="/">Contact</Link>
+                        <Link to="/contact">Contact</Link>
                       </NavItem>
                     </Nav>
                   </Collapse>
@@ -108,11 +104,11 @@ const Layout = ({ children, header, headerTitle }) => {
             <div className="tall-header-title">
               <Container>
                 <Row>
-                  <Col lg={{size:"7", offset: "0"}} md={{size:"8", offset:"2"}} sm={{size:"12", offset:"0"}} xs={{size:"12", offset: "0"}} className="tall-header-text">
+                  <Col xl={{size:"7", offset:"0"}} lg={{size:"6", offset: "0"}} md={{size:"8", offset:"2"}} sm={{size:"12", offset:"0"}} xs={{size:"12", offset: "0"}} className="tall-header-text">
                     <h1 dangerouslySetInnerHTML={{ __html: headerTitle }} />
                     <Link to="blog" className="btn btn-primary">Our Players</Link>
                   </Col>
-                  <Col lg={{size:"5", offset: "0"}} md={{size:"6", offset: "3"}} xs={{size:"8", offset:"2"}}>
+                  <Col xl={{size:"5", offset: "0"}} lg={{size:"6", offset: "0"}} md={{size:"6", offset: "3"}} xs={{size:"8", offset:"2"}}>
                     <Img fluid={data.phones.childImageSharp.fluid} />
                   </Col>
                 </Row>
@@ -151,16 +147,16 @@ const Layout = ({ children, header, headerTitle }) => {
                   <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <Link to="/">Players</Link>
+                  <Link to="/players">Players</Link>
                 </li>
                 <li>
-                  <Link to="/">Team</Link>
+                  <Link to="/team">Team</Link>
                 </li>
                 <li>
-                  <Link to="/">Shop</Link>
+                  <Link to="/shop">Shop</Link>
                 </li>
                 <li>
-                  <Link to="/">Contact</Link>
+                  <Link to="/contact">Contact</Link>
                 </li>
               </ul>
             </Col>

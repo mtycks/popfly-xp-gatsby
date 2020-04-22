@@ -183,6 +183,11 @@ h1,h2,h3,h4,h5,h6{
     line-height:1.75;
   }
 
+.contact-social a:link,
+.contact-social a:visited{
+  color:#353535;
+}
+
 footer{
   background-color:#141515;
 }
@@ -214,15 +219,7 @@ footer h4{
   .tall-header-title h1{
     font-size:2rem;
   }
-  .tall-header-title .tall-header-text{
-    display:block;
-    margin-top:5rem;
-    text-align:center;
-  }
 
-  .tall-header-title .container{
-    padding-bottom:1rem;
-  }
 
 }
 
@@ -240,6 +237,29 @@ footer h4{
     .team-member .gatsby-image-wrapper{
       max-width:220px !important;
     }
+
+}
+
+@media(max-width:991px){
+  .tall-header-title .container{
+    padding-bottom:1rem;
+  }
+
+  .tall-header-title .tall-header-text{
+    display:block;
+    margin-top:5rem;
+    text-align:center;
+  }
+
+  .main-navigation{
+    background-color:transparent;
+    -webkit-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+  }
+  .main-navigation.open{
+    background-color:rgba(0,0,0,.9);
+  }
 
 }
 

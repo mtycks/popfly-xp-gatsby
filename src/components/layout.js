@@ -21,7 +21,7 @@ const Layout = ({ children, header, headerTitle }) => {
       white_logo: file(absolutePath: { regex: "/whitelogo3.png/" }) {
         childImageSharp {
           fluid(maxWidth: 250, quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }

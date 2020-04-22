@@ -27,7 +27,7 @@ module.exports = {
         background_color: `#F46912`,
         theme_color: `#FCB826`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/faviconpop.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -68,9 +68,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "",
+        trackingId: "UA-164288459-1",
         // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: false,
+        head: true,
         // Setting this parameter is optional
         anonymize: true,
         // Setting this parameter is also optional
@@ -88,7 +88,7 @@ module.exports = {
         // Any additional optional fields
         sampleRate: 5,
         siteSpeedSampleRate: 10,
-        cookieDomain: "YOURDOMAIN.LOCAL",
+        cookieDomain: "popflyxp.com",
       },
     },
     `gatsby-plugin-sitemap`,

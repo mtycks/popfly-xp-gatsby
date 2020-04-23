@@ -1,12 +1,36 @@
-import React from "react"
+import React, {useState} from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Container, Row, Col, Form, Input, Label, Button, FormGroup } from 'reactstrap';
+import { Container, Row, Col, Form, Input, Label, Button, FormGroup, Alert } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 
 const ContactPage = () => {
+
+  const [submitted, setSubmitted] = useState({});
+
+  const SubmitContactForm = (ev) => {
+
+    ev.preventDefault();
+
+    const form = ev.target;
+    const data = new FormData(form);
+    const xhr = new XMLHttpRequest();
+    xhr.open(form.method, form.action);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState !== XMLHttpRequest.DONE) return;
+      if (xhr.status === 200) {
+        form.reset();
+        setSubmitted({ status: "SUCCESS" });
+      } else {
+        setSubmitted({ status: "ERROR" });
+      }
+    };
+    xhr.send(data);
+  }
+
 
   return(
 
@@ -25,14 +49,14 @@ const ContactPage = () => {
           </Col>
           <Col md="6">
 
-            <Form>
+            <Form action="https://formspree.io/xqkdrgnv" method="post" onSubmit={SubmitContactForm} className="mb-4">
               <FormGroup>
                 <Label for="name">Name*</Label>
                 <Input type="text" name="name" id="name" placeholder="Name" />
               </FormGroup>
               <FormGroup>
                 <Label for="name">Email*</Label>
-                <Input type="email" name="email" id="exampleEmail" placeholder="name@example.com" />
+                <Input type="email" name="_replyto" id="email" placeholder="name@example.com" />
               </FormGroup>
               <FormGroup>
                 <Label for="name">Message*</Label>
@@ -40,6 +64,14 @@ const ContactPage = () => {
               </FormGroup>
               <Button color="primary">Submit</Button>
             </Form>
+
+            {submitted.status === 'SUCCESS' &&
+              <Alert color="success">Thanks! Your form was successfully submitted.</Alert>
+            }
+            
+            {submitted.status === 'ERROR' &&
+            <Alert color="danger">Oops, there was an error submitting the form. Please try again.</Alert>
+            }
 
           </Col>
         </Row>

@@ -12,4 +12,4 @@ env:
   - 'SFTP_USER=popflyxp'
   - 'SFTP_PASSWORD=$SFTP_PASSWORD'
 after_success:
-- curl -T public/ -u popflyxp:4JwZ4P2H sftp://charlton.dreamhost.com/home/popflyxp/popflyxp.com
+- curl -T public/ -u popflyxp:${SFTP_PASSWORD} sftp://charlton.dreamhost.com/home/popflyxp/popflyxp.com

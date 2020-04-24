@@ -11,5 +11,7 @@ env:
   global:
   - 'SFTP_USER=popflyxp'
   - 'SFTP_PASSWORD=$SFTP_PASSWORD'
+  - 'SFTP_KEY=bTlMUjJqTG9VUElDeGxpWUx5SFV5QWRNSkFUYjh4MGJ0Z2lHQm9kNHNwNA=='
 after_success:
-- sftp popflyxp@charlton.dreamhost.com:popflyxp.com/ <<< $'put -r ./public/*'
+- echo "${SFTP_KEY}" | base64 --decode >/tmp/sftp_rsa
+- sftp --key /tmp/sftp_rsa popflyxp@charlton.dreamhost.com:popflyxp.com/ <<< $'put -r ./public/*'

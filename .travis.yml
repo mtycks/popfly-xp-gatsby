@@ -7,15 +7,9 @@ script: gatsby build
 branches:
   only:
       - master
-deploy:
-  skip_cleanup: true
-  acl: public_read
-  local_dir: public
 env:
   global:
   - 'SFTP_USER=popflyxp'
   - 'SFTP_PASSWORD=$SFTP_PASSWORD'
 after_success:
-- curl --ftp-create-dirs
-       -T filename
-       sftp://${SFTP_USER}:${SFTP_PASSWORD}@charlton.dreamhost.com/home/popflyxp/popflyxp.com
+- find public -type f -exec curl --ftp-create-dirs -T {} sftp://${SFTP_USER}:${SFTP_PASSWORD}@charlton.dreamhost.com/home/popflyxp/popflyxp.com/{} \;

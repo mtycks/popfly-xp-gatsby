@@ -1,3 +1,12 @@
+language: node_js
+node_js:
+- 8.14.0
+install: 
+  - npm install
+script: gatsby build
+branches:
+  only:
+      - master
 env:
   global:
   - 'SFTP_USER=popflyxp'

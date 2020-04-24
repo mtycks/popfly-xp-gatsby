@@ -7,6 +7,10 @@ script: gatsby build
 branches:
   only:
       - master
+deploy:
+  skip_cleanup: true
+  acl: public_read
+  local_dir: public
 env:
   global:
   - 'SFTP_USER=popflyxp'

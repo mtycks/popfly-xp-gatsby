@@ -35,7 +35,7 @@ const ContactPage = () => {
   return(
 
     <Layout header="short" headerTitle="Contact">
-      <SEO title="Home" />
+      <SEO title="Contact" />
 
       <Container>
         <Row className="pt-5 pb-2">

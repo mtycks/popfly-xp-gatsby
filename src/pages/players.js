@@ -43,7 +43,7 @@ const PlayersPage = () => {
   return(
 
     <Layout header="short" headerTitle="Our Players">
-      <SEO title="Home" />
+      <SEO title="Our Players" />
 
       <Container>
         <Row className="pt-5 pb-5">

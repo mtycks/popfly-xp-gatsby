@@ -65,7 +65,7 @@ const OurTeamPage = () => {
   return(
 
     <Layout header="short" headerTitle="Our Team">
-      <SEO title="Home" />
+      <SEO title="Our Team" />
 
       <Container fluid={true}>
         <div className="pt-5 pb-5 team-members">

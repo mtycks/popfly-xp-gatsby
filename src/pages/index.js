@@ -8,7 +8,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const indexHeader = `Bringing fans and<br />players together`;
+const indexHeader = `Bringing fans and<br />players closer together`;
 
 
 

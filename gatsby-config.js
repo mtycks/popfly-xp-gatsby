@@ -21,8 +21,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby`,
-        short_name: `gatsby`,
+        name: `PopFlyXP`,
+        short_name: `PopFlyXP`,
         start_url: `/`,
         background_color: `#F46912`,
         theme_color: `#FCB826`,

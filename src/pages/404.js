@@ -10,7 +10,7 @@ const NotFoundPage = () => {
   return(
 
     <Layout header="short" headerTitle="404">
-      <SEO title="Home" />
+      <SEO title="404" />
 
       <Container>
         <Row className="pt-5 pb-5">
